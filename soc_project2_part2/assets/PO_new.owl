@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns="http://csc750/p2/reference.owl#"
+  xml:base="http://csc750/p2/reference.owl">
+  <owl:Ontology rdf:about=""/>
+
+  <owl:Class rdf:ID="PurchaseOrder">
+    <!-- Cardinality Restriction, only one Item -->
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://csc750/p2/reference.owl#hasItem"/>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+          >1</owl:cardinality>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <!--  -->
+  </owl:Class>
+  <owl:Class rdf:ID="Person"/>
+  <owl:Class rdf:ID="Shipping"/>
+  <owl:Class rdf:ID="Customer">
+    <rdfs:subClassOf rdf:resource="#Person"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Item"/>
+  <owl:Class rdf:ID="Address"/>
+  <owl:DatatypeProperty rdf:ID="ItemName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Item"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PartNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Item"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:ID="hasItem">
+    <rdfs:range rdf:resource="#Item"/>
+    <rdfs:domain rdf:resource="#PurchaseOrder"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="shippingAddress">
+    <rdfs:domain rdf:resource="#Address"/>
+    <rdfs:range rdf:resource="#Shipping"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="State">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Address"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Zip">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Address"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="City">
+    <rdfs:domain rdf:resource="#Address"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Street">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Address"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="unitPrice">
+    <rdfs:domain rdf:resource="#Item"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="FirstName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="LastName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+
+  <!-- New Properties START -->
+  <owl:DatatypeProperty rdf:ID="OrderNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#PurchaseOrder"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="OrderDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#PurchaseOrder"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="Quantity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Item"/>
+  </owl:DatatypeProperty>
+  <!-- New Properties END -->
+</rdf:RDF>

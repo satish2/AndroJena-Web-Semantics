@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ns0="http://csc750/p2/reference.owl#"
+    xmlns="http://csc750/p2/reference.owl#"
+    xml:base="http://csc750/p2/reference.owl">
+    
+    <owl:Ontology rdf:about=""/>
+    
+    <rdf:Description rdf:about="#Satish_Customer">
+        <rdf:type rdf:resource="#Customer"/>
+        <ns0:FirstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Satish</ns0:FirstName>
+        <ns0:LastName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inampudi</ns0:LastName>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="#myAddress">
+        <rdf:type rdf:resource="#Shipping"></rdf:type>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="#Address1">
+        <rdf:type rdf:resource="#Address"></rdf:type>
+        <ns0:State rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NC</ns0:State>
+        <ns0:Zip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">27606</ns0:Zip>
+        <ns0:City rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raleigh</ns0:City>
+        <ns0:Street rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Avent Ferry Road</ns0:Street>
+        <ns0:shippingAddress rdf:resource="#myAddress"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="#Item1">
+        <rdf:type rdf:resource="#Item"/>
+        <owl:differentFrom rdf:resource="#Item2"/>
+        <ns0:PartNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</ns0:PartNumber>
+        <ns0:ItemName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Keyboard</ns0:ItemName>
+        <ns0:unitPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">19.45</ns0:unitPrice>
+        <ns0:Quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</ns0:Quantity>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="#Item2">
+        <rdf:type rdf:resource="#Item"/>
+        <owl:differentFrom rdf:resource="#Item1"/>
+        <ns0:PartNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">123</ns0:PartNumber>
+        <ns0:ItemName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Keyboard1</ns0:ItemName>
+        <ns0:unitPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">191.45</ns0:unitPrice>
+        <ns0:Quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</ns0:Quantity>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="#KeyBoardOrder">
+        <rdf:type rdf:resource="#PurchaseOrder"/>
+        <ns0:hasItem rdf:resource="#Item1"/>
+        <ns0:hasItem rdf:resource="#Item2"/>
+        <ns0:OrderNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int">12</ns0:OrderNumber>
+        <ns0:OrderDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-02-19</ns0:OrderDate>
+        <!-- YYYY -MM -DD -->
+    </rdf:Description>
+    
+</rdf:RDF>
+
